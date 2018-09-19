@@ -7,7 +7,7 @@ TARGET_CPU_SMP := false
 TARGET_CPU_VARIANT :=cortex-a9
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/NOOK/nook_ntx_6sl/kernel
+TARGET_PREBUILT_KERNEL := device/RIDIBOOKS/RBPP1/kernel
 BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init androidboot.console=ttymxc0 video=mxcepdcfb:E060SCM,bpp=16 video=mxc_elcdif_fb:off no_console_suspend
 BOARD_KERNEL_BASE := 0x80800000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -25,13 +25,22 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Storage
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SUPPRESS_EMMC_WIPE := true
-BOARD_HAS_NO_REAL_SDCARD := true
-RECOVERY_SDCARD_ON_DATA := true
-TARGET_RECOVERY_FSTAB := device/NOOK/nook_ntx_6sl/recovery.fstab
+BOARD_HAS_NO_REAL_SDCARD := false
+RECOVERY_SDCARD_ON_DATA := false
+TW_NO_EXFAT_FUSE := true
+TARGET_RECOVERY_FSTAB := device/RIDIBOOKS/RBPP1/recovery.fstab
+
+# Storage -- TWRP
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_EXTERNAL_STORAGE_PATH := "/extsd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "extsd"
 
 # Screen
+BOARD_HAS_FLIPPED_SCREEN := true
 TW_BRIGHTNESS_PATH := /sys/class/backlight/mxc_msp430_fl.0/brightness
 TW_DEFAULT_BRIGHTNESS := 50
 TW_MAX_BRIGHTNESS := 100
@@ -44,13 +53,18 @@ RECOVERY_TOUCHSCREEN_SWAP_XY := true
 #IMX EPDC
 TW_IMX_EINK := true
 TW_IMX_EINK_ROTATE := 1
-#TW_IMX_EINK_MONOCHROME := true
+TW_IMX_EINK_MONOCHROME := true
 
 #MISC
 TW_NO_REBOOT_BOOTLOADER := true
 TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/mc13892_bat
+TW_EXTRA_LANGUAGES := true
 
 #THEME
 TW_THEME := portrait_hdpi
-TW_CUSTOM_THEME := $(if $(wildcard device/NOOK/nook_ntx_6sl/theme),device/NOOK/nook_ntx_6sl/theme)
+TW_CUSTOM_THEME := $(if $(wildcard device/RIDIBOOKS/RBPP1/theme),device/RIDIBOOKS/RBPP1/theme)
+
+# ref: https://forum.xda-developers.com/android/software/twrp-flags-boardconfig-mk-t3333970
+
