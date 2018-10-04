@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_RBPP1.mk
+    $(LOCAL_DIR)/omni_PAPER_PRO.mk

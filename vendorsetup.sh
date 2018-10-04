@@ -1,2 +1,2 @@
-add_lunch_combo omni_RBPP1-userdebug
+add_lunch_combo omni_PAPER_PRO-userdebug
 

@@ -7,7 +7,7 @@ TARGET_CPU_SMP := false
 TARGET_CPU_VARIANT :=cortex-a9
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/RIDIBOOKS/RBPP1/kernel
+TARGET_PREBUILT_KERNEL := device/RIDIBOOKS/PAPER_PRO/kernel
 BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init androidboot.console=ttymxc0 video=mxcepdcfb:E060SCM,bpp=16 video=mxc_elcdif_fb:off no_console_suspend
 BOARD_KERNEL_BASE := 0x80800000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -32,7 +32,7 @@ BOARD_SUPPRESS_EMMC_WIPE := true
 # comment below to disable this flag
 #RECOVERY_SDCARD_ON_DATA := false
 TW_NO_EXFAT_FUSE := true
-TARGET_RECOVERY_FSTAB := device/RIDIBOOKS/RBPP1/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/RIDIBOOKS/PAPER_PRO/recovery.fstab
 
 # Storage -- TWRP
 TW_INTERNAL_STORAGE_PATH := "/sdcard"
@@ -67,7 +67,7 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
 #THEME
 TW_THEME := portrait_hdpi
-TW_CUSTOM_THEME := $(if $(wildcard device/RIDIBOOKS/RBPP1/theme),device/RIDIBOOKS/RBPP1/theme)
+TW_CUSTOM_THEME := $(if $(wildcard device/RIDIBOOKS/PAPER_PRO/theme),device/RIDIBOOKS/PAPER_PRO/theme)
 
 # ref: https://forum.xda-developers.com/android/software/twrp-flags-boardconfig-mk-t3333970
 
