@@ -1,5 +1,5 @@
 # TWRP for Ridibooks Paper Pro device
- - [Ridibooks Paper Pro](https://paper.ridibooks.com/Detail/400000828) is 7.8" eInk Reader by Ridibooks (South Korea), its specification is similar to [Tolino Epos](https://mytolino.com/tolino-epos/7-8-inch-ebook-reader/) but with convenient hardware page buttons and sleek user experience.
+ - [Ridibooks Paper Pro](https://paper.ridibooks.com/Detail/400000828) is 7.8" eInk Reader by Ridibooks (South Korea; manufactured by [Netronix](http://www.netronixinc.com/)), its specification is similar to [Tolino Epos](https://mytolino.com/tolino-epos/7-8-inch-ebook-reader/) but with convenient hardware page buttons and sleek user experience.
  - Based on [GitHub:Ryugo-Z/Nook eInk reader devices](https://github.com/Ryogo-Z/nook_ntx_6sl_twrp)
 
 ### Current state
