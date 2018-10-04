@@ -28,8 +28,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SUPPRESS_EMMC_WIPE := true
-BOARD_HAS_NO_REAL_SDCARD := false
-RECOVERY_SDCARD_ON_DATA := false
+#BOARD_HAS_NO_REAL_SDCARD := false
+# comment below to disable this flag
+#RECOVERY_SDCARD_ON_DATA := false
 TW_NO_EXFAT_FUSE := true
 TARGET_RECOVERY_FSTAB := device/RIDIBOOKS/RBPP1/recovery.fstab
 
@@ -61,6 +62,8 @@ TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/mc13892_bat
 TW_EXTRA_LANGUAGES := true
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+#: do not use serial for backup directory name
 
 #THEME
 TW_THEME := portrait_hdpi
