@@ -28,9 +28,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SUPPRESS_EMMC_WIPE := true
-#BOARD_HAS_NO_REAL_SDCARD := false
+# BOARD_HAS_NO_REAL_SDCARD := true   # false for disable emulated sd, but not useful for enabling emulated sd?
 # comment below to disable this flag
-#RECOVERY_SDCARD_ON_DATA := false
+RECOVERY_SDCARD_ON_DATA := true
 TW_NO_EXFAT_FUSE := true
 TARGET_RECOVERY_FSTAB := device/RIDIBOOKS/PAPER_PRO/recovery.fstab
 
@@ -64,6 +64,8 @@ TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/mc13892_bat
 TW_EXTRA_LANGUAGES := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 #: do not use serial for backup directory name
+TW_EXCLUDE_TWRPAPP := true
+# TW_DEFAULT_LANGUAGE := ko_KR
 
 #THEME
 TW_THEME := portrait_hdpi
