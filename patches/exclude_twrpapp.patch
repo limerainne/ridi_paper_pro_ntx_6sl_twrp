@@ -1,0 +1,22 @@
+--- Android.orig.mk	2018-10-05 01:42:31.144171983 +0900
++++ Android.mk	2018-10-05 01:41:46.505211075 +0900
+@@ -473,11 +473,11 @@
+ 	include $(BUILD_PREBUILT)
+ endif
+ 
+-#TWRP App "placeholder"
+-include $(CLEAR_VARS)
+-LOCAL_MODULE := me.twrp.twrpapp.apk
+-LOCAL_MODULE_TAGS := eng
+-LOCAL_MODULE_CLASS := RECOVERY_EXECUTABLES
+-LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/sbin
+-LOCAL_SRC_FILES := $(LOCAL_MODULE)
+-include $(BUILD_PREBUILT)
++#  #TWRP App "placeholder"
++#  include $(CLEAR_VARS)
++#  LOCAL_MODULE := me.twrp.twrpapp.apk
++#  LOCAL_MODULE_TAGS := eng
++#  LOCAL_MODULE_CLASS := RECOVERY_EXECUTABLES
++#  LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/sbin
++#  LOCAL_SRC_FILES := $(LOCAL_MODULE)
++#  include $(BUILD_PREBUILT)

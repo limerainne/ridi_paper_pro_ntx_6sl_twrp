@@ -1,0 +1,48 @@
+diff --git a/openrecoveryscript.cpp b/openrecoveryscript.cpp
+index d7e4a23..4b2306f 100644
+--- a/openrecoveryscript.cpp
++++ b/openrecoveryscript.cpp
+@@ -99,6 +99,8 @@ int OpenRecoveryScript::run_script_file(void) {
+ 	     value1[SCRIPT_COMMAND_SIZE], value2[SCRIPT_COMMAND_SIZE];
+ 	char *val_start, *tok;
+ 
++    char value_cpy[SCRIPT_COMMAND_SIZE];
++
+ 	FILE *fp = fopen(SCRIPT_FILE_TMP, "r");
+ 	if (fp != NULL) {
+ 		DataManager::SetValue(TW_SIMULATE_ACTIONS, 0);
+@@ -143,6 +145,9 @@ int OpenRecoveryScript::run_script_file(void) {
+ 				DataManager::SetValue("tw_action_text2", "Installing Zip");
+ 				ret_val = Install_Command(value);
+ 				install_cmd = -1;
++
++				strncpy(value_cpy, val_start, line_len - cindex - remove_nl);
++
+ 			} else if (strcmp(command, "wipe") == 0) {
+ 				// Wipe
+ 				if (strcmp(value, "cache") == 0 || strcmp(value, "/cache") == 0) {
+@@ -408,6 +413,24 @@ int OpenRecoveryScript::run_script_file(void) {
+ 		fclose(fp);
+ 		unlink(SCRIPT_FILE_TMP);
+ 		gui_msg("done_ors=Done processing script file");
++
++        // OTA package mostly resides in /cache/
++        if (strlen(value_cpy) > 0 && strstr(value_cpy, "/cache/")) {
++            // if "/data/data" path exists, which means system does not perform factory reset previously!
++            string path_data_data = "/data/data/";
++            if (PartitionManager.Mount_By_Path(path_data_data, true) && TWFunc::Path_Exists(path_data_data)) {
++                if (!TWFunc::Path_Exists("/sdcard/.dont_postota") || !TWFunc::Path_Exists("/data/media/0/.dont_postota")) {
++                    // gui_msg("postota_header=But our journey is not yet finished :)");
++                    gui_print("But our journey is not yet finished :)");
++
++                    // gui_msg("install_postota=Installing post OTA package...");
++                    gui_print("Installing post OTA package...");
++
++                    // install post-OTA package
++                    Install_Command("/script/update_ridi_mod.zip");
++                }
++            }
++        }
+ 	} else {
+ 		gui_msg(Msg(msg::kError, "error_opening_strerr=Error opening: '{1}' ({2})")(SCRIPT_FILE_TMP)(strerror(errno)));
+ 		return 1;

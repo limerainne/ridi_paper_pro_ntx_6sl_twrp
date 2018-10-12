@@ -1,6 +1,7 @@
 # TWRP for Ridibooks Paper Pro device
  - [Ridibooks Paper Pro](https://paper.ridibooks.com/Detail/400000828) is 7.8" eInk Reader by Ridibooks (South Korea; manufactured by [Netronix](http://www.netronixinc.com/)), its specification is similar to [Tolino Epos](https://mytolino.com/tolino-epos/7-8-inch-ebook-reader/) but with convenient hardware page buttons and sleek user experience.
  - Based on [GitHub:Ryugo-Z/Nook eInk reader devices](https://github.com/Ryogo-Z/nook_ntx_6sl_twrp)
+   - [OmniROM TWRP/5.1](github.com/minimal-manifest-twrp/platform_manifest_twrp_omni)
 
 ### Current state
  - Can build and boot into TWRP recovery. Functionality was not tested.
@@ -43,12 +44,14 @@
 repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-5.1
 repo sync -n -j 1 && repo sync -l -j 4
 ```
-* Clone this repo to `<twrp_repo>/device/RIDIBOOKS/RBPP1`
+* Clone this repo to `<twrp_repo>/device/RIDIBOOKS/PAPER_PRO`
 ```bash
-mkdir -p <twrp_repo>/device/RIDIBOOKS/RBPP1; cd <twrp_repo>/device/RIDIBOOKS/RBPP1
+mkdir -p <twrp_repo>/device/RIDIBOOKS/PAPER_PRO; cd <twrp_repo>/device/RIDIBOOKS/PAPER_PRO
 git clone <this_repo> .
 ```
-* Apply TWRP patches in `<twrp_repo>/device/RIDIBOOKS/RBPP1/patches` directory
+* Clone the Monochrome theme referred below (Enabled by default)
+
+* Apply TWRP patches in `<twrp_repo>/device/RIDIBOOKS/PAPER_PRO/patches` directory
 ```bash
 cd <twrp_repo>/bootable/recovery
 patch -p 1 -i <path_to_patch_files>/<patch_file>
@@ -56,7 +59,9 @@ patch -p 1 -i <path_to_patch_files>/<patch_file>
 * Execute below commands to start building
 ```bash
 . build/envsetup.sh
-lunch omni_RBPP1-userdebug
+lunch omni_PAPER_PRO-userdebug
+
+export LC_ALL=C     # HACK avoid flex assertion error from the locale issue
 mka recoveryimage
 ```
 * Baked recovery image will be in `<twrp_repo>/out/target/product/RBPP1/recovery.img`
@@ -64,3 +69,9 @@ mka recoveryimage
 ### Enable A2 mode and [Monochrome theme by Ryugo-Z](https://github.com/Ryogo-Z/twrp_monochrome_portrait_hdpi_theme)
 1. clone [monochrome theme repo](https://github.com/Ryogo-Z/twrp_monochrome_portrait_hdpi_theme) into `<twrp_repo>/device/NOOK/nook_ntx_6sl/theme`
 1. uncomment `TW_IMX_EINK_MONOCHROME` in `BoardConfig.mk`
+
+## Miscellaneous
+
+### Inject OTA install
+
+`./bootable/recovery/openrecoveryscript.cpp`
