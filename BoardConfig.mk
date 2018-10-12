@@ -28,9 +28,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SUPPRESS_EMMC_WIPE := true
-# BOARD_HAS_NO_REAL_SDCARD := true   # false for disable emulated sd, but not useful for enabling emulated sd?
+BOARD_HAS_NO_REAL_SDCARD := true   # false for disable emulated sd, but not useful for enabling emulated sd?
 # comment below to disable this flag
-RECOVERY_SDCARD_ON_DATA := true
+# RECOVERY_SDCARD_ON_DATA := true
 TW_NO_EXFAT_FUSE := true
 TARGET_RECOVERY_FSTAB := device/RIDIBOOKS/PAPER_PRO/recovery.fstab
 
