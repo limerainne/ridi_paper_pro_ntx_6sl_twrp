@@ -1,8 +1,14 @@
 diff --git a/data.cpp b/data.cpp
-index 4dfbde2..718b022 100644
+index 4dfbde2..69ba098 100644
 --- a/data.cpp
 +++ b/data.cpp
-@@ -729,17 +729,22 @@ void DataManager::SetDefaultValues()
+@@ -725,21 +725,27 @@ void DataManager::SetDefaultValues()
+ 	mData.SetValue(TW_BACKUP_NAME, "(Auto Generate)");
+ 
+ 	mPersist.SetValue(TW_INSTALL_REBOOT_VAR, "0");
+-	mPersist.SetValue(TW_SIGNED_ZIP_VERIFY_VAR, "0");
++	// mPersist.SetValue(TW_SIGNED_ZIP_VERIFY_VAR, "0");
++	mPersist.SetValue(TW_SIGNED_ZIP_VERIFY_VAR, "1");   // enfoce sign verification
  	mPersist.SetValue(TW_DISABLE_FREE_SPACE_VAR, "0");
  	mPersist.SetValue(TW_FORCE_DIGEST_CHECK_VAR, "0");
  	mPersist.SetValue(TW_USE_COMPRESSION_VAR, "0");
@@ -29,7 +35,7 @@ index 4dfbde2..718b022 100644
  	mData.SetValue(TW_ACTION_BUSY, "0");
  	mData.SetValue("tw_wipe_cache", "0");
  	mData.SetValue("tw_wipe_dalvik", "0");
-@@ -890,8 +895,8 @@ void DataManager::SetDefaultValues()
+@@ -890,8 +896,8 @@ void DataManager::SetDefaultValues()
  	mConst.SetValue("tw_oem_build", "1");
  #else
  	mConst.SetValue("tw_oem_build", "0");
