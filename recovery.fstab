@@ -5,5 +5,4 @@
 /cache       ext4   /dev/block/mmcblk0p6	flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset;
 /misc        emmc   /dev/block/mmcblk0p9	flags=backup=1;
 /device      ext4   /dev/block/mmcblk0p8    flags=backup=1;
-/sdcard      vfat   /dev/block/mmcblk0p4    flags=backup=0;display="Internal Storage";canbewiped;wipeingui;wipeduringfactoryreset;
 /extsd       vfat   /dev/block/mmcblk1p1    flags=backup=0;display="External SD Card";removable
