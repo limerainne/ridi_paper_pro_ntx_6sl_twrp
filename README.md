@@ -1,6 +1,6 @@
 # TWRP for Ridibooks Paper Pro device
  - [Ridibooks Paper Pro](https://paper.ridibooks.com/Detail/400000828) is 7.8" eInk Reader by Ridibooks (South Korea; manufactured by [Netronix](http://www.netronixinc.com/)), its specification is similar to [Tolino Epos](https://mytolino.com/tolino-epos/7-8-inch-ebook-reader/) but with convenient hardware page buttons and sleek user experience.
- - Based on [GitHub:Ryugo-Z/Nook eInk reader devices](https://github.com/Ryogo-Z/nook_ntx_6sl_twrp)
+ - Based on [GitHub:Ryogo-Z/Nook eInk reader devices](https://github.com/Ryogo-Z/nook_ntx_6sl_twrp)
    - [OmniROM TWRP/5.1](github.com/minimal-manifest-twrp/platform_manifest_twrp_omni)
 
 ### Current state
@@ -66,7 +66,7 @@ mka recoveryimage
 ```
 * Baked recovery image will be in `<twrp_repo>/out/target/product/RBPP1/recovery.img`
 
-### Enable A2 mode and [Monochrome theme by Ryugo-Z](https://github.com/Ryogo-Z/twrp_monochrome_portrait_hdpi_theme)
+### Enable A2 mode and [Monochrome theme by Ryogo-Z](https://github.com/Ryogo-Z/twrp_monochrome_portrait_hdpi_theme)
 1. clone [monochrome theme repo](https://github.com/Ryogo-Z/twrp_monochrome_portrait_hdpi_theme) into `<twrp_repo>/device/NOOK/nook_ntx_6sl/theme`
 1. uncomment `TW_IMX_EINK_MONOCHROME` in `BoardConfig.mk`
 
